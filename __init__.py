@@ -6,6 +6,8 @@ import re
 #addons21\900801631\morph\stats.py:68
 """
 from aqt.qt import *
+morphaction = QAction("K ? V ?", mw)
+mw.form.menubar.addAction(morphaction)
 def on_top_toolbar_did_init_links(links, toolbar):
     name, details = getStatsLink()
     links.append(
@@ -13,9 +15,8 @@ def on_top_toolbar_did_init_links(links, toolbar):
             "morph", _(name), on_morph_link_clicked, tip=_(details), id="morph"
         )
     )
-    morphaction = QAction(_(name), mw)
+    morphaction.setText(_(name))
     morphaction.triggered.connect(toolbar.link_handlers["morph"])
-    mw.form.menubar.addAction(morphaction)
 """
 
 syncemoji, mediaemoji = "🗃","🖼" #"↻","⟳"
